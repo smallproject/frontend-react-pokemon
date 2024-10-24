@@ -1,3 +1,4 @@
+import "./Pokemon-Detail.css";
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
@@ -27,7 +28,7 @@ function PokemonDetail(props) {
     }, []);
 
     return (
-        <article>
+        <article className={"card"}>
             {/*{Object.keys(pokemon).length > 0 &&*/}
             {/*    <>*/}
             {/*        <h2>{poke.name}</h2>*/}
@@ -38,8 +39,8 @@ function PokemonDetail(props) {
                 src={pokemon ? pokemon.sprites.front_default : ""}
                 alt="Pokemon Image"
             />
-            <p><strong>Moves: </strong>{pokemon.moves.length}</p>
-            <p><strong>Weight: </strong>{pokemon.weight}</p>
+            <p><strong>Moves: </strong>{pokemon ? pokemon.moves.length : ""}</p>
+            <p><strong>Weight: </strong>{pokemon ? pokemon.weight : ""}</p>
             <p><strong>Abilities: </strong></p>
             <ul>
                 {pokemon && pokemon.abilities.map((ability) => (
