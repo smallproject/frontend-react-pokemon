@@ -2,7 +2,7 @@ import "./Pokemon-Detail.css";
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
-function PokemonDetail(props) {
+function PokemonDetail({endpoint}) {
     const [pokemon, setPokemon] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -12,7 +12,7 @@ function PokemonDetail(props) {
             setLoading(true);
 
             try {
-                const response = await axios.get("https://pokeapi.co/api/v2/pokemon/ditto")
+                const response = await axios.get(endpoint);
                 setPokemon(response.data);
                 console.log(response.data);
 
